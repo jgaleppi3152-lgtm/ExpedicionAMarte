@@ -65,12 +65,7 @@ public class ExpedicionAMarte {
                     break;
 
                 case 3:
-                    limpiarConsola();
-                    System.out.print("*************************************************************\n");
-                    System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
-                    System.out.print("*************************************************************\n");
-                    // Agregar la lógica para simular la trayectoria del rover
-                    pausar(entrada);
+                    simularTrayectoriaRover(entrada);
                     break;
 
                 case 4:
@@ -140,9 +135,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| a. Invernadero hidropónico                                |\n");
                 System.out.print("*************************************************************\n");
-
                 // Agregar la lógica para gestionar el invernadero hidropónico
-
                 pausar(entrada);
                 break;
 
@@ -152,9 +145,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| b. Carga de baterías solares                              |\n");
                 System.out.print("*************************************************************\n");
-
                 // Agregar la lógica para gestionar la carga de baterías solares
-
                 pausar(entrada);
                 break;
 
@@ -164,9 +155,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
                 System.out.print("*************************************************************\n");
-
                 // Agregar la lógica para gestionar el blindaje contra tormenta de polvo
-
                 pausar(entrada);
                 break;
 
@@ -176,9 +165,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| d. Modo reposo                                            |\n");
                 System.out.print("*************************************************************\n");
-
                 // Agregar la lógica para gestionar el modo reposo
-
                 pausar(entrada);
                 break;
 
@@ -198,6 +185,17 @@ public class ExpedicionAMarte {
                 break;
         }
     }
+
+    // Método para Simulación de Trayectoria del Rover
+    public static void simularTrayectoriaRover(Scanner entrada) {
+        limpiarConsola();
+        System.out.print("*************************************************************\n");
+        System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
+        System.out.print("*************************************************************\n");
+        // Agregar la lógica para simular la trayectoria del rover
+        pausar(entrada);
+    }
+
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
