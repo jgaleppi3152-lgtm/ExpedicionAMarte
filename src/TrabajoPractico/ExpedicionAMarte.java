@@ -17,17 +17,15 @@ public class ExpedicionAMarte {
         entrada.nextLine(); // Esperamos a que el usuario presione Enter
     }
 
-    public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-
-        // Declaramos una variable para almacenar la opción del usuario
+    // Método que muestra y gestiona el menú principal
+    public static void menuPrincipal(Scanner entrada) {
+        // Variable para almacenar la opción del usuario
         int opcion = 0;
 
-        // Creamos un bucle para mostrar el menú hasta que el usuario elija salir
+        // Repetimos el menú hasta que el usuario seleccione salir
         do {
             limpiarConsola();
 
-            // Mostramos el menú de opciones
             System.out.print("*************************************************************\n");
             System.out.print("|                     Menú de opciones                      |\n");
             System.out.print("*************************************************************\n");
@@ -40,20 +38,18 @@ public class ExpedicionAMarte {
             System.out.print("Ingrese una opción: ");
 
             // Validamos que el usuario ingrese un número entero
-            if(entrada.hasNextInt()) {
-                // Leemos la opción ingresada por el usuario
+            if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();
-                entrada.nextLine(); // Limpiamos el buffer del Scanner
+                entrada.nextLine(); // Limpiamos el buffer
             } else {
-                // Si el usuario no ingresa un número entero, mostramos un mensaje de error y continuamos con el bucle
-                entrada.nextLine(); // Limpiamos el buffer del Scanner
+                entrada.nextLine();
                 limpiarConsola();
                 System.out.println("\nOpción inválida. Por favor, ingrese un número del 1 al 5.");
                 pausar(entrada);
                 continue;
             }
 
-            // Evaluamos la opción ingresada por el usuario
+            // Evaluamos la opción seleccionada
             switch (opcion) {
                 case 1:
                     limpiarConsola();
@@ -63,95 +59,15 @@ public class ExpedicionAMarte {
                     // Agregar la lógica para mostrar el estado de SoVYNE
                     pausar(entrada);
                     break;
+
                 case 2:
-                    limpiarConsola();
-                    System.out.print("*************************************************************\n");
-                    System.out.print("| 2. Gestión ProDeLB - de Protocolos de la Base             |\n");
-                    System.out.print("*************************************************************\n");
-
-                    // Declaramos una variable para almacenar la opción del submenú
-                    char subOpcion = ' ';
-
-                    // Submenú para la opción 2
-                    System.out.print("*************************************************************\n");
-                    System.out.print("|              Opciones de la Gestión ProDeLB               |\n");
-                    System.out.print("*************************************************************\n");
-                    System.out.print("| a. Invernadero hidropónico                                |\n");
-                    System.out.print("| b. Carga de baterías solares                              |\n");
-                    System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
-                    System.out.print("| d. Modo reposo                                            |\n");
-                    System.out.print("| z. Salir                                                  |\n");
-                    System.out.print("*************************************************************\n");
-                    System.out.print("Ingrese una opción: ");
-
-                    // Validamos que el usuario ingrese un carácter
-                    String input = entrada.nextLine();
-                    if (input.length() == 1) {
-                        subOpcion = input.charAt(0);
-                    } else {
-                        limpiarConsola();
-                        System.out.println("\n[ERROR DE SISTEMA]: Código de protocolo no reconocido por la computadora central. Operación abortada para prevenir fallas de presurización.");
-                        pausar(entrada);
-                        break; // Mostramos un mensaje de error si el usuario ingresa más de un carácter en el submenú
-                    }
-
-                    // Evaluamos la opción ingresada por el usuario en el submenú
-                    switch (subOpcion) {
-                        case 'a':
-                        case 'A':
-                            limpiarConsola();
-                            System.out.print("*************************************************************\n");
-                            System.out.print("| a. Invernadero hidropónico                                |\n");
-                            System.out.print("*************************************************************\n");
-                            pausar(entrada);
-                            break;
-                        case 'b':
-                        case 'B':
-                            limpiarConsola();
-                            System.out.print("*************************************************************\n");
-                            System.out.print("| b. Carga de baterías solares                              |\n");
-                            System.out.print("*************************************************************\n");
-                            pausar(entrada);
-                            break;
-                        case 'c':
-                        case 'C':
-                            limpiarConsola();
-                            System.out.print("*************************************************************\n");
-                            System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
-                            System.out.print("*************************************************************\n");
-                            pausar(entrada);
-                            break;
-                        case 'd':
-                        case 'D':
-                            limpiarConsola();
-                            System.out.print("*************************************************************\n");
-                            System.out.print("| d. Modo reposo                                            |\n");
-                            System.out.print("*************************************************************\n");
-                            pausar(entrada);
-                            break;
-                        case 'z':
-                        case 'Z':
-                            limpiarConsola();
-                            System.out.print("*************************************************************\n");
-                            System.out.print("| Saliendo de la Gestión ProDeLB - de Protocolos de la Base |\n");
-                            System.out.print("*************************************************************\n");
-                            pausar(entrada);
-                            break;
-                        default:
-                            limpiarConsola();
-                            System.out.println("\n[ERROR DE SISTEMA]: Código de protocolo no reconocido por la computadora central. Operación abortada para prevenir fallas de presurización.");
-                            pausar(entrada);
-                            break; // Mostramos un mensaje de error si el usuario ingresa una opción inválida en el submenú
-                        }
+                    submenuProDeLB(entrada);
                     break;
+
                 case 3:
-                    limpiarConsola();
-                    System.out.print("*************************************************************\n");
-                    System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
-                    System.out.print("*************************************************************\n");
-                    // Agregar la lógica para simular la trayectoria del rover
-                    pausar(entrada);
+                    simularTrayectoriaRover(entrada);
                     break;
+
                 case 4:
                     limpiarConsola();
                     System.out.print("*************************************************************\n");
@@ -160,6 +76,7 @@ public class ExpedicionAMarte {
                     // Agregar la lógica para analizar las muestras de regolito marciano
                     pausar(entrada);
                     break;
+
                 case 5:
                     limpiarConsola();
                     System.out.print("*************************************************************\n");
@@ -167,12 +84,124 @@ public class ExpedicionAMarte {
                     System.out.print("*************************************************************\n");
                     pausar(entrada);
                     break;
+
                 default:
                     limpiarConsola();
                     System.out.println("\nOpción inválida. Por favor, ingrese un número del 1 al 5.");
                     pausar(entrada);
+                    break;
             }
-        } while (opcion != 5); // Continuamos mostrando el menú hasta que el usuario elija salir (opción 5)
+
+        } while (opcion != 5); // Continuamos mostrando el menú hasta que el usuario seleccione salir
+    }
+
+    // Método que muestra y gestiona el submenú de ProDeLB
+    public static void submenuProDeLB(Scanner entrada) {
+        // Variable para almacenar la opción del submenú
+        char subOpcion = ' ';
+
+        limpiarConsola();
+
+        System.out.print("*************************************************************\n");
+        System.out.print("| 2. Gestión ProDeLB - de Protocolos de la Base             |\n");
+        System.out.print("*************************************************************\n");
+        System.out.print("|              Opciones de la Gestión ProDeLB               |\n");
+        System.out.print("*************************************************************\n");
+        System.out.print("| a. Invernadero hidropónico                                |\n");
+        System.out.print("| b. Carga de baterías solares                              |\n");
+        System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
+        System.out.print("| d. Modo reposo                                            |\n");
+        System.out.print("| z. Salir                                                  |\n");
+        System.out.print("*************************************************************\n");
+        System.out.print("Ingrese una opción: ");
+
+        // Validamos que el usuario ingrese un solo carácter
+        String input = entrada.nextLine();
+
+        if (input.length() == 1) {
+            subOpcion = input.charAt(0);
+        } else {
+            limpiarConsola();
+            System.out.println("\n[ERROR DE SISTEMA]: Código de protocolo no reconocido por la computadora central. Operación abortada para prevenir fallas de presurización.");
+            pausar(entrada);
+            return;
+        }
+
+        // Evaluamos la opción seleccionada en el submenú
+        switch (subOpcion) {
+            case 'a':
+            case 'A':
+                limpiarConsola();
+                System.out.print("*************************************************************\n");
+                System.out.print("| a. Invernadero hidropónico                                |\n");
+                System.out.print("*************************************************************\n");
+                // Agregar la lógica para gestionar el invernadero hidropónico
+                pausar(entrada);
+                break;
+
+            case 'b':
+            case 'B':
+                limpiarConsola();
+                System.out.print("*************************************************************\n");
+                System.out.print("| b. Carga de baterías solares                              |\n");
+                System.out.print("*************************************************************\n");
+                // Agregar la lógica para gestionar la carga de baterías solares
+                pausar(entrada);
+                break;
+
+            case 'c':
+            case 'C':
+                limpiarConsola();
+                System.out.print("*************************************************************\n");
+                System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
+                System.out.print("*************************************************************\n");
+                // Agregar la lógica para gestionar el blindaje contra tormenta de polvo
+                pausar(entrada);
+                break;
+
+            case 'd':
+            case 'D':
+                limpiarConsola();
+                System.out.print("*************************************************************\n");
+                System.out.print("| d. Modo reposo                                            |\n");
+                System.out.print("*************************************************************\n");
+                // Agregar la lógica para gestionar el modo reposo
+                pausar(entrada);
+                break;
+
+            case 'z':
+            case 'Z':
+                limpiarConsola();
+                System.out.print("*************************************************************\n");
+                System.out.print("| Saliendo de la Gestión ProDeLB - de Protocolos de la Base |\n");
+                System.out.print("*************************************************************\n");
+                pausar(entrada);
+                break;
+
+            default:
+                limpiarConsola();
+                System.out.println("\n[ERROR DE SISTEMA]: Código de protocolo no reconocido por la computadora central. Operación abortada para prevenir fallas de presurización.");
+                pausar(entrada);
+                break;
+        }
+    }
+
+    // Método para Simulación de Trayectoria del Rover
+    public static void simularTrayectoriaRover(Scanner entrada) {
+        limpiarConsola();
+        System.out.print("*************************************************************\n");
+        System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
+        System.out.print("*************************************************************\n");
+        // Agregar la lógica para simular la trayectoria del rover
+        pausar(entrada);
+    }
+
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Ejecutamos el menú principal
+        menuPrincipal(entrada);
 
         // Cerramos el Scanner para liberar recursos
         entrada.close();
