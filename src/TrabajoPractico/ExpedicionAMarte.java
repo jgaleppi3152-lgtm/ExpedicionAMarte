@@ -65,6 +65,10 @@ public class ExpedicionAMarte {
                     break;
 
                 case 3:
+                    limpiarConsola();
+                    System.out.print("*************************************************************\n");
+                    System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
+                    System.out.print("*************************************************************\n");
                     simularTrayectoriaRover(entrada);
                     break;
 
@@ -188,14 +192,9 @@ public class ExpedicionAMarte {
 
     // Método para Simulación de Trayectoria del Rover
     public static void simularTrayectoriaRover(Scanner entrada) {
-        limpiarConsola();
-        System.out.print("*************************************************************\n");
-        System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
-        System.out.print("*************************************************************\n");
         // Agregar la lógica para simular la trayectoria del rover
         pausar(entrada);
     }
-
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
