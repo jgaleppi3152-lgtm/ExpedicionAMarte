@@ -103,6 +103,7 @@ public class ExpedicionAMarte {
                             System.out.print("*************************************************************\n");
                             System.out.print("| a. Invernadero hidropónico                                |\n");
                             System.out.print("*************************************************************\n");
+                            // Agregar la lógica para gestionar el invernadero hidropónico
                             pausar(entrada);
                             break;
                         case 'b':
@@ -111,6 +112,7 @@ public class ExpedicionAMarte {
                             System.out.print("*************************************************************\n");
                             System.out.print("| b. Carga de baterías solares                              |\n");
                             System.out.print("*************************************************************\n");
+                            // Agregar la lógica para gestionar la carga de baterías solares
                             pausar(entrada);
                             break;
                         case 'c':
@@ -119,6 +121,7 @@ public class ExpedicionAMarte {
                             System.out.print("*************************************************************\n");
                             System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
                             System.out.print("*************************************************************\n");
+                            // Agregar la lógica para gestionar el blindaje contra tormenta de polvo
                             pausar(entrada);
                             break;
                         case 'd':
@@ -127,6 +130,7 @@ public class ExpedicionAMarte {
                             System.out.print("*************************************************************\n");
                             System.out.print("| d. Modo reposo                                            |\n");
                             System.out.print("*************************************************************\n");
+                            // Agregar la lógica para gestionar el modo reposo
                             pausar(entrada);
                             break;
                         case 'z':
