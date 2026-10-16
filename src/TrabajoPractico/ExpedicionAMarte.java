@@ -16,6 +16,20 @@ public class ExpedicionAMarte {
         entrada.nextLine(); // Esperamos a que el usuario presione Enter
     }
 
+    // Método que muestra logo
+    public static void mostrarLogo() {
+        System.out.print("*************************************************************\n");
+        System.out.print("|              ###  ####  #   #  ####  #### ##### #   #     |\n");
+        System.out.print("|            #   # #   #  # #  #     #     #      # #       |\n");
+        System.out.print("|           #   # #   #   #    ###   ###  ####    #         |\n");
+        System.out.print("|          #   # #   #   #       #     # #       #          |\n");
+        System.out.print("|          ###  ####    #   ####  ####  #####   #           |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| __________________ PROGRAMMING OUR WAY __________________ |\n");
+        System.out.print("| ------------------ TO A BEST TOMORROW  ------------------ |\n");
+        System.out.print("|                                                           |\n");
+    }
+
     // Método que muestra y gestiona el menú principal
     public static void menuPrincipal(Scanner entrada) {
 
@@ -25,10 +39,12 @@ public class ExpedicionAMarte {
         // Repetimos el menú hasta que el usuario seleccione salir
         do {
             opcion = 0;
+
             limpiarConsola();
+            mostrarLogo();
 
             System.out.print("*************************************************************\n");
-            System.out.print("|                     Menú de opciones                      |\n");
+            System.out.print("|                      Menú del Odissey                     |\n");
             System.out.print("*************************************************************\n");
             System.out.print("| 1. Estado de SoVYNE (Soporte Vital y Nivel de Emergencia) |\n");
             System.out.print("| 2. Gestión de Protocolos de la Base (ProDeLB)             |\n");
@@ -79,6 +95,7 @@ public class ExpedicionAMarte {
                 switch (opcion) {
                     case 1:
                         limpiarConsola();
+                        mostrarLogo();
                         System.out.print("*************************************************************\n");
                         System.out.print("| 1. Estado de SoVYNE (Soporte Vital y Nivel de Emergencia) |\n");
                         System.out.print("*************************************************************\n");
@@ -91,6 +108,7 @@ public class ExpedicionAMarte {
 
                     case 3:
                         limpiarConsola();
+                        mostrarLogo();
                         System.out.print("*************************************************************\n");
                         System.out.print("| 3. Simulación de Trayectoria del Rover                    |\n");
                         System.out.print("*************************************************************\n");
@@ -99,6 +117,7 @@ public class ExpedicionAMarte {
 
                     case 4:
                         limpiarConsola();
+                        mostrarLogo();
                         System.out.print("*************************************************************\n");
                         System.out.print("| 4. Análisis Secuencial de Muestras de Regolito Marciano   |\n");
                         System.out.print("*************************************************************\n");
@@ -107,6 +126,7 @@ public class ExpedicionAMarte {
 
                     case 5:
                         limpiarConsola();
+                        mostrarLogo();
                         System.out.print("*************************************************************\n");
                         System.out.print("| Saliendo del sistema...                                   |\n");
                         System.out.print("*************************************************************\n");
@@ -130,9 +150,8 @@ public class ExpedicionAMarte {
         char subOpcion = ' ';
 
         limpiarConsola();
+        mostrarLogo();
 
-        System.out.print("*************************************************************\n");
-        System.out.print("| 2. Gestión de Protocolos de la Base (ProDeLB)             |\n");
         System.out.print("*************************************************************\n");
         System.out.print("|              Opciones de la Gestión ProDeLB               |\n");
         System.out.print("*************************************************************\n");
@@ -161,6 +180,7 @@ public class ExpedicionAMarte {
             case 'a':
             case 'A':
                 limpiarConsola();
+                mostrarLogo();
                 System.out.print("*************************************************************\n");
                 System.out.print("| a. Invernadero hidropónico                                |\n");
                 System.out.print("*************************************************************\n");
@@ -170,6 +190,7 @@ public class ExpedicionAMarte {
             case 'b':
             case 'B':
                 limpiarConsola();
+                mostrarLogo();
                 System.out.print("*************************************************************\n");
                 System.out.print("| b. Carga de baterías solares                              |\n");
                 System.out.print("*************************************************************\n");
@@ -179,6 +200,7 @@ public class ExpedicionAMarte {
             case 'c':
             case 'C':
                 limpiarConsola();
+                mostrarLogo();
                 System.out.print("*************************************************************\n");
                 System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
                 System.out.print("*************************************************************\n");
@@ -188,6 +210,7 @@ public class ExpedicionAMarte {
             case 'd':
             case 'D':
                 limpiarConsola();
+                mostrarLogo();
                 System.out.print("*************************************************************\n");
                 System.out.print("| d. Modo reposo                                            |\n");
                 System.out.print("*************************************************************\n");
