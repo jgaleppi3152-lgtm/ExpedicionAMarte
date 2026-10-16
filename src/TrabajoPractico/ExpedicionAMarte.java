@@ -19,14 +19,14 @@ public class ExpedicionAMarte {
     // Método que muestra logo
     public static void mostrarLogo() {
         System.out.print("*************************************************************\n");
-        System.out.print("|              ###  ####  #   #  ####  #### ##### #   #     |\n");
-        System.out.print("|            #   # #   #  # #  #     #     #      # #       |\n");
-        System.out.print("|           #   # #   #   #    ###   ###  ####    #         |\n");
-        System.out.print("|          #   # #   #   #       #     # #       #          |\n");
-        System.out.print("|          ###  ####    #   ####  ####  #####   #           |\n");
         System.out.print("|                                                           |\n");
-        System.out.print("| __________________ PROGRAMMING OUR WAY __________________ |\n");
-        System.out.print("| ------------------ TO A BETTER TOMORROW ----------------- |\n");
+        System.out.print("|        OOOOO   DDDD   III  SSSSS  SSSSS  EEEEE  Y   Y     |\n");
+        System.out.print("|       O     O  D   D   I   S      S      E       Y Y      |\n");
+        System.out.print("|       O     O  D   D   I   SSSSS  SSSSS  EEEE     Y       |\n");
+        System.out.print("|       O     O  D   D   I       S      S  E        Y       |\n");
+        System.out.print("|        OOOOO   DDDD   III  SSSSS  SSSSS  EEEEE    Y       |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| _______ PROGRAMMING OUR WAY TO A BETTER TOMORROW ________ |\n");
         System.out.print("|                                                           |\n");
     }
 
