@@ -26,8 +26,8 @@ public class ExpedicionAMarte {
         System.out.print("|       O     O  D   D   I       S      S  E        Y       |\n");
         System.out.print("|        OOOOO   DDDD   III  SSSSS  SSSSS  EEEEE    Y       |\n");
         System.out.print("|                                                           |\n");
-        System.out.print("| _______ PROGRAMMING OUR WAY TO A BETTER TOMORROW ________ |\n");
-        System.out.print("|                                                           |\n");
+        System.out.print("|------- PROGRAMMING OUR WAY TO A BETTER TOMORROW ----------|\n");
+        System.out.print("|-----------------------------------------------------------|\n");
     }
 
     // Método que muestra y gestiona el menú principal
