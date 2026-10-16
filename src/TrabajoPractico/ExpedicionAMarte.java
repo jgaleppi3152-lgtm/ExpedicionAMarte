@@ -82,8 +82,7 @@ public class ExpedicionAMarte {
                         System.out.print("*************************************************************\n");
                         System.out.print("| 1. Estado de SoVYNE (Soporte Vital y Nivel de Emergencia) |\n");
                         System.out.print("*************************************************************\n");
-                        // Agregar la lógica para mostrar el estado de SoVYNE
-                        pausar(entrada);
+                        mostrarEstadoSoVYNE(entrada);
                         break;
 
                     case 2:
@@ -103,8 +102,7 @@ public class ExpedicionAMarte {
                         System.out.print("*************************************************************\n");
                         System.out.print("| 4. Análisis Secuencial de Muestras de Regolito Marciano   |\n");
                         System.out.print("*************************************************************\n");
-                        // Agregar la lógica para analizar las muestras de regolito marciano
-                        pausar(entrada);
+                        analizarMuestrasRegolito(entrada);
                         break;
 
                     case 5:
@@ -166,8 +164,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| a. Invernadero hidropónico                                |\n");
                 System.out.print("*************************************************************\n");
-                // Agregar la lógica para gestionar el invernadero hidropónico
-                pausar(entrada);
+                gestionarInvernaderoHidroponico(entrada);
                 break;
 
             case 'b':
@@ -176,8 +173,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| b. Carga de baterías solares                              |\n");
                 System.out.print("*************************************************************\n");
-                // Agregar la lógica para gestionar la carga de baterías solares
-                pausar(entrada);
+                gestionarCargaBateriasSolares(entrada);
                 break;
 
             case 'c':
@@ -186,8 +182,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| c. Blindaje contra tormenta de polvo                      |\n");
                 System.out.print("*************************************************************\n");
-                // Agregar la lógica para gestionar el blindaje contra tormenta de polvo
-                pausar(entrada);
+                gestionarBlindajeTormentaPolvo(entrada);
                 break;
 
             case 'd':
@@ -196,8 +191,7 @@ public class ExpedicionAMarte {
                 System.out.print("*************************************************************\n");
                 System.out.print("| d. Modo reposo                                            |\n");
                 System.out.print("*************************************************************\n");
-                // Agregar la lógica para gestionar el modo reposo
-                pausar(entrada);
+                gestionarModoReposo(entrada);
                 break;
 
             case 'z':
@@ -216,6 +210,48 @@ public class ExpedicionAMarte {
                 break;
         }
     }
+
+    // Inicio Estado de SoVYNE (Soporte Vital y Nivel de Emergencia)
+    // Metodo para mostrar el estado de SoVYNE
+    public static void mostrarEstadoSoVYNE(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Estado de SoVYNE...\n");
+        pausar(entrada);
+    }
+    // Fin Estado de SoVYNE (Soporte Vital y Nivel de Emergencia)
+
+    // Inicio Gestión de Protocolos de la Base (ProDeLB)
+    // Inicio Gestión de Invernadero Hidropónico
+    // Método para gestionar el invernadero hidropónico
+    public static void gestionarInvernaderoHidroponico(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Gestión de Invernadero Hidropónico...\n");
+        pausar(entrada);
+    }
+    // Fin Gestión de Invernadero Hidropónico
+
+    // Inicio Gestión de Carga de Baterías Solares
+    // Método para gestionar la carga de baterías solares
+    public static void gestionarCargaBateriasSolares(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Gestión de Carga de Baterías Solares...\n");
+        pausar(entrada);
+    }
+    // Fin Gestión de Carga de Baterías Solares
+
+    // Inicio Gestión de Blindaje contra Tormenta de Polvo
+    // Método para gestionar el blindaje contra tormenta de polvo
+    public static void gestionarBlindajeTormentaPolvo(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Gestión de Blindaje contra Tormenta de Polvo...\n");
+        pausar(entrada);
+    }
+    // Fin Gestión de Blindaje contra Tormenta de Polvo
+
+    // Inicio Gestión de Modo Reposo
+    // Método para gestionar el modo reposo
+    public static void gestionarModoReposo(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Gestión de Modo Reposo...\n");
+        pausar(entrada);
+    }
+    // Fin Gestión de Modo Reposo
+    // Fin Gestión de Protocolos de la Base (ProDeLB)
 
     // Inicio Simulación de Trayectoria del Rover
     // Método para Simulación de Trayectoria del Rover
@@ -359,6 +395,14 @@ public class ExpedicionAMarte {
         return consumoBateria;
     }
     // Fin Simulación de Trayectoria del Rover
+
+    // Inicio Análisis Secuencial de Muestras de Regolito Marciano
+    // Método para Análisis Secuencial de Muestras de Regolito Marciano
+    public static void analizarMuestrasRegolito(Scanner entrada) {
+        System.out.print("Desarrollando la funcionalidad de Análisis Secuencial de Muestras de Regolito Marciano...\n");
+        pausar(entrada);
+    }
+    // Fin Análisis Secuencial de Muestras de Regolito Marciano
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
