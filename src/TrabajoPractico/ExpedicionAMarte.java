@@ -26,7 +26,7 @@ public class ExpedicionAMarte {
         System.out.print("|          ###  ####    #   ####  ####  #####   #           |\n");
         System.out.print("|                                                           |\n");
         System.out.print("| __________________ PROGRAMMING OUR WAY __________________ |\n");
-        System.out.print("| ------------------ TO A BEST TOMORROW  ------------------ |\n");
+        System.out.print("| ------------------ TO A BETTER TOMORROW ----------------- |\n");
         System.out.print("|                                                           |\n");
     }
 
