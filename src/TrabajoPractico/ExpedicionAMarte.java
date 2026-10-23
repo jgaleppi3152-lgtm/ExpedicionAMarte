@@ -422,7 +422,120 @@ public class ExpedicionAMarte {
     // Inicio Análisis Secuencial de Muestras de Regolito Marciano
     // Método para Análisis Secuencial de Muestras de Regolito Marciano
     public static void analizarMuestrasRegolito(Scanner entrada) {
-        System.out.print("\nDesarrollando la funcionalidad de Análisis Secuencial de Muestras de Regolito Marciano...\n");
+        int cantidadMuestras;
+        double porcentajeHierro;
+        char tienePerclorato;
+
+        double sumaHierro = 0;
+        double maxHierro = -1;
+        int muestraMaxHierro = 0;
+        int contadorToxicas = 0;
+
+        System.out.println( "ANÁLISIS SECUENCIAL DE MUESTRAS DE REGOLITO MARCIANO");
+
+        do {
+            System.out.print("Ingrese la cantidad de muestras a evaluar: ");
+
+            //Verificamos que el usuario ingrese un numero entero
+            while(!entrada.hasNextInt()) {
+                System.out.println("Error: debe ingresar un número entero.");
+                entrada.next();
+                System.out.print("Ingrese la cantidad de muestras a evaluar: ");
+            }
+
+            cantidadMuestras = entrada.nextInt();
+
+            // Verificamos que el valor ingresado sea mayor a cero
+            if(cantidadMuestras <= 0){
+                System.out.print("Error: la cantidad debe ser mayor a cero. Intente nuevamente.\n");
+            }
+
+        } while (cantidadMuestras <= 0);
+
+        // Solicitamos al usuario que ingrese valores de porcentaje de óxido de hierro y presencia de sales de perclorato para cada muestra
+        for(int i=1; i <= cantidadMuestras; i++){
+            System.out.println();
+            System.out.println("Muestra " + i + "de " + cantidadMuestras);
+
+            // Bloque para solicitar al usuario que ingrese el porcentaje de oxido de hierro
+            do{
+                System.out.println("Ingrese porcentaje de óxido de hierro Fe203 (0-100): ");
+
+                // Validamos que el usuario ingrese un numero real
+                while(!entrada.hasNextDouble()){
+                    System.out.println("Error; debe ingresar un número real.");
+                    entrada.next();
+                    System.out.println("Ingrese porcentaje de óxido de hierro Fe203 (0-100): ");
+                }
+
+                porcentajeHierro = entrada.nextDouble();
+
+                // Validamos que el porcentaje ingresado sea un valor entre 0 y 100
+                if(porcentajeHierro < 0 || porcentajeHierro > 100){
+                    System.out.println("Error: el porcentaje debe estar entre 0 y 100");
+                }
+
+            } while (porcentajeHierro < 0 || porcentajeHierro > 100);
+
+            // Bloque para solicitar al usuario que indique si la muestra tiene sales de perclorato
+            do{
+                System.out.print("Tiene sales de perclorato? (s/n): ");
+                tienePerclorato = entrada.next().charAt(0);
+
+                if(tienePerclorato != 's' && tienePerclorato != 'S' && tienePerclorato != 'n' && tienePerclorato != 'N'){
+                    System.out.println("Error: debe ingresar 's' para Sí o 'n' para No.");
+                }
+
+            } while(tienePerclorato != 's' && tienePerclorato != 'S' && tienePerclorato != 'n' && tienePerclorato != 'N');
+
+            // Acumulamos los porcentajes de oxido de hierro
+            sumaHierro += porcentajeHierro;
+
+            if(porcentajeHierro > maxHierro){
+                // Actualizamos el valor maximo de oxido de hierro y la muestra correspondiente
+                maxHierro = porcentajeHierro;
+                muestraMaxHierro = i;
+            }
+
+            if(tienePerclorato == 's' || tienePerclorato == 'S'){
+                // Contamos las muestras con presencia de sales de perclorato
+                contadorToxicas++;
+            }
+
+            // Mostramos reporte de la muestra procesada
+            System.out.println("Reporte de muestra:");
+            System.out.println("Número de muestra procesada: " + i);
+            System.out.println("Porcentaje de Fe203: " + porcentajeHierro + "%");
+            
+            // Mostramos la condicion de presencia de sales de perclorato segun la respuesta del usuario
+            if(tienePerclorato == 's' || tienePerclorato == 'S'){
+                System.out.println("Condición observada: presencia de sales de perclorato.");
+            }else{
+                System.out.println("Condición observada: sin presencia de sales de perclorato.");
+            }
+        }
+
+        // Calculamos el promedio de oxido de hierro y el porcentaje de toxicidad del lote
+        double promedioHierro = sumaHierro / cantidadMuestras;
+        double porcentajeToxicidad = (contadorToxicas * 100.0) / cantidadMuestras;
+
+        // Mostramos el reporte final del lote de muestras
+        System.out.println();
+        System.out.println("REPORTE FINAL DEL LOTE");
+        System.out.println("Total de muestras procesadas: " + cantidadMuestras);
+        System.out.printf("Promedio de oxido de hierro: %.2f%%\n", promedioHierro);
+        System.out.println("Muestra con mayor concentración: muestra " + muestraMaxHierro + " con " + maxHierro + "%" );
+        System.out.printf("Porcentaje de toxicidad del lote: %.2f%%\n", porcentajeToxicidad);
+
+        // Evaluamos si el lote es apto para extraccion y fundicion de metales segun los criterios establecidos
+        if(promedioHierro > 45.0 && porcentajeToxicidad < 25.0){
+            System.out.println("LOTE APTO: Aprobado para extraccion y fundición de metales");
+        }else {
+            System.out.println("LOTE DESCARTADO: Alta concentración de sales tóxicas o bajo rendimiento mineral.");
+        }
+
+        // Limpiamos el buffer del Scanner
+        entrada.nextLine();
         pausar(entrada);
     }
     // Fin Análisis Secuencial de Muestras de Regolito Marciano
