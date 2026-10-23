@@ -237,7 +237,7 @@ public class ExpedicionAMarte {
     // Inicio Estado de SoVYNE (Soporte Vital y Nivel de Emergencia)
     // Metodo para mostrar el estado de SoVYNE
     public static void mostrarEstadoSoVYNE(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Estado de SoVYNE...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Estado de SoVYNE...\n");
         pausar(entrada);
     }
     // Fin Estado de SoVYNE (Soporte Vital y Nivel de Emergencia)
@@ -246,7 +246,7 @@ public class ExpedicionAMarte {
     // Inicio Gestión de Invernadero Hidropónico
     // Método para gestionar el invernadero hidropónico
     public static void gestionarInvernaderoHidroponico(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Gestión de Invernadero Hidropónico...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Gestión de Invernadero Hidropónico...\n");
         pausar(entrada);
     }
     // Fin Gestión de Invernadero Hidropónico
@@ -254,7 +254,7 @@ public class ExpedicionAMarte {
     // Inicio Gestión de Carga de Baterías Solares
     // Método para gestionar la carga de baterías solares
     public static void gestionarCargaBateriasSolares(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Gestión de Carga de Baterías Solares...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Gestión de Carga de Baterías Solares...\n");
         pausar(entrada);
     }
     // Fin Gestión de Carga de Baterías Solares
@@ -262,7 +262,7 @@ public class ExpedicionAMarte {
     // Inicio Gestión de Blindaje contra Tormenta de Polvo
     // Método para gestionar el blindaje contra tormenta de polvo
     public static void gestionarBlindajeTormentaPolvo(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Gestión de Blindaje contra Tormenta de Polvo...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Gestión de Blindaje contra Tormenta de Polvo...\n");
         pausar(entrada);
     }
     // Fin Gestión de Blindaje contra Tormenta de Polvo
@@ -270,7 +270,7 @@ public class ExpedicionAMarte {
     // Inicio Gestión de Modo Reposo
     // Método para gestionar el modo reposo
     public static void gestionarModoReposo(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Gestión de Modo Reposo...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Gestión de Modo Reposo...\n");
         pausar(entrada);
     }
     // Fin Gestión de Modo Reposo
@@ -300,14 +300,14 @@ public class ExpedicionAMarte {
                 distanciaObjetivo = entrada.nextDouble();
                 entrada.nextLine();
 
-                if (distanciaObjetivo <= 0 || distanciaObjetivo > 50) {
-                    System.out.print("Distancia inválida. Debe ser un número positivo y no mayor a 50 km.\n");
+                if (distanciaObjetivo <= 0 || distanciaObjetivo > 20) {
+                    System.out.print("Distancia inválida. Debe ser un número positivo y no mayor a 20 km.\n");
                 }
             } else {
                 entrada.nextLine();
                 System.out.print("Entrada inválida. Por favor, ingrese un número.\n");
             }
-        } while (distanciaObjetivo <= 0 || distanciaObjetivo > 50);
+        } while (distanciaObjetivo <= 0 || distanciaObjetivo > 20);
 
         // Inicializamos la distancia restante con la distancia objetivo
         distanciaRestante = distanciaObjetivo;
@@ -320,14 +320,14 @@ public class ExpedicionAMarte {
                 totalSoles = entrada.nextInt();
                 entrada.nextLine();
 
-                if (totalSoles <= 0 || totalSoles > 20) {
-                    System.out.println("Número de soles inválido. Debe ser un número positivo y no mayor a 20.\n");
+                if (totalSoles <= 0 || totalSoles > 6) {
+                    System.out.println("Número de soles inválido. Debe ser un número positivo y no mayor a 6.\n");
                 }
             } else {
                 entrada.nextLine();
                 System.out.println("Entrada inválida. Por favor, ingrese un número entero.\n");
             }
-        } while (totalSoles <= 0 || totalSoles > 20);
+        } while (totalSoles <= 0 || totalSoles > 6);
 
         // Simulamos la travesía sol a sol
         for (int sol = 1; sol <= totalSoles; sol++) {
@@ -422,7 +422,7 @@ public class ExpedicionAMarte {
     // Inicio Análisis Secuencial de Muestras de Regolito Marciano
     // Método para Análisis Secuencial de Muestras de Regolito Marciano
     public static void analizarMuestrasRegolito(Scanner entrada) {
-        System.out.print("Desarrollando la funcionalidad de Análisis Secuencial de Muestras de Regolito Marciano...\n");
+        System.out.print("\nDesarrollando la funcionalidad de Análisis Secuencial de Muestras de Regolito Marciano...\n");
         pausar(entrada);
     }
     // Fin Análisis Secuencial de Muestras de Regolito Marciano
