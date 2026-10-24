@@ -30,6 +30,41 @@ public class ExpedicionAMarte {
         System.out.print("|-----------------------------------------------------------|\n");
     }
 
+    // Mostrar mensaje de bienvenida
+    public static void mostrarMensajeBienvenida() {
+        System.out.print("*************************************************************\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| [OK] Transmisión de datos iniciada.                       |\n");
+        System.out.print("| [OK] Enlace satelital conectado.                          |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| ¡Bienvenido, explorador!                                  |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| ODISSEY está listo para iniciar una nueva misión.         |\n");
+        System.out.print("| Todos los sistemas se encuentran operativos.              |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("|            INICIANDO SECUENCIA DE TRANSMISIÓN             |\n");
+        System.out.print("|                 *** ENLACE CONECTADO ***                  |\n");
+        System.out.println("*************************************************************\n");
+    }
+
+    // Mostrar mensaje de salida
+    public static void mostrarMensajeSalida() {
+        System.out.print("*************************************************************\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| [OK] Transmisión de datos finalizada.                     |\n");
+        System.out.print("| [OK] Sistemas en estados seguro.                          |\n");
+        System.out.print("| [OK] Enlace satelital desconectado de forma segura.       |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| La misión ha concluido satisfactoriamente.                |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("| ODISSEY finalizando operaciones...                        |\n");
+        System.out.print("| Hasta la próxima misión, explorador.                      |\n");
+        System.out.print("|                                                           |\n");
+        System.out.print("|                   FIN DE LA TRANSMISIÓN                   |\n");
+        System.out.print("|                *** ENLACE DESCONECTADO ***                |\n");
+        System.out.println("*************************************************************\n");
+    }
+
     // Método que muestra y gestiona el menú principal
     public static void menuPrincipal(Scanner entrada) {
 
@@ -127,9 +162,7 @@ public class ExpedicionAMarte {
                     case 5:
                         limpiarConsola();
                         mostrarLogo();
-                        System.out.print("*************************************************************\n");
-                        System.out.print("| Saliendo del sistema...                                   |\n");
-                        System.out.print("*************************************************************\n");
+                        mostrarMensajeSalida();
                         pausar(entrada);
                         break;
 
@@ -222,7 +255,7 @@ public class ExpedicionAMarte {
                 limpiarConsola();
                 System.out.print("*************************************************************\n");
                 System.out.print("| Saliendo de la Gestión ProDeLB - de Protocolos de la Base |\n");
-                System.out.print("*************************************************************\n");
+                System.out.println("*************************************************************\n");
                 pausar(entrada);
                 break;
 
@@ -422,8 +455,8 @@ public class ExpedicionAMarte {
     // Inicio Análisis Secuencial de Muestras de Regolito Marciano
     // Método para Análisis Secuencial de Muestras de Regolito Marciano
     public static void analizarMuestrasRegolito(Scanner entrada) {
-        int cantidadMuestras;
-        double porcentajeHierro;
+        int cantidadMuestras = 0;
+        double porcentajeHierro = 0;
         char tienePerclorato;
 
         double sumaHierro = 0;
@@ -431,59 +464,55 @@ public class ExpedicionAMarte {
         int muestraMaxHierro = 0;
         int contadorToxicas = 0;
 
-        System.out.println( "ANÁLISIS SECUENCIAL DE MUESTRAS DE REGOLITO MARCIANO");
-
         do {
-            System.out.print("Ingrese la cantidad de muestras a evaluar: ");
+            System.out.print("\nIngrese la cantidad de muestras a evaluar: ");
 
             //Verificamos que el usuario ingrese un numero entero
-            while(!entrada.hasNextInt()) {
-                System.out.println("Error: debe ingresar un número entero.");
-                entrada.next();
-                System.out.print("Ingrese la cantidad de muestras a evaluar: ");
+            if (entrada.hasNextInt()) {
+                cantidadMuestras = entrada.nextInt();
+                entrada.nextLine();
+
+                // Verificamos que el valor ingresado sea mayor a cero
+                if (cantidadMuestras <= 0) {
+                    System.out.print("Error: La cantidad debe ser mayor a cero. Intente nuevamente.\n");
+                }
+            } else {
+                entrada.nextLine();
+                System.out.print("Entrada inválida. Por favor, ingrese un número entero.\n");
             }
-
-            cantidadMuestras = entrada.nextInt();
-
-            // Verificamos que el valor ingresado sea mayor a cero
-            if(cantidadMuestras <= 0){
-                System.out.print("Error: la cantidad debe ser mayor a cero. Intente nuevamente.\n");
-            }
-
         } while (cantidadMuestras <= 0);
 
         // Solicitamos al usuario que ingrese valores de porcentaje de óxido de hierro y presencia de sales de perclorato para cada muestra
-        for(int i=1; i <= cantidadMuestras; i++){
-            System.out.println();
-            System.out.println("Muestra " + i + "de " + cantidadMuestras);
+        for(int i = 1; i <= cantidadMuestras; i++){
+            System.out.print("\nMuestra " + i + " de " + cantidadMuestras);
 
-            // Bloque para solicitar al usuario que ingrese el porcentaje de oxido de hierro
+            // Bloque para solicitar al usuario que ingrese el porcentaje de óxido de hierro
             do{
-                System.out.println("Ingrese porcentaje de óxido de hierro Fe203 (0-100): ");
+                System.out.print("\nIngrese porcentaje de óxido de hierro Fe203 (0-100): ");
 
                 // Validamos que el usuario ingrese un numero real
-                while(!entrada.hasNextDouble()){
-                    System.out.println("Error; debe ingresar un número real.");
-                    entrada.next();
-                    System.out.println("Ingrese porcentaje de óxido de hierro Fe203 (0-100): ");
+                if (entrada.hasNextDouble()) {
+                    porcentajeHierro = entrada.nextDouble();
+                    entrada.nextLine();
+
+                    // Validamos que el porcentaje ingresado sea un valor entre 0 y 100
+                    if (porcentajeHierro < 0 || porcentajeHierro > 100) {
+                        System.out.print("Error: El porcentaje debe estar entre 0 y 100. Intente nuevamente.\n");
+                    }
+                } else {
+                    entrada.nextLine();
+                    System.out.print("Entrada inválida. Por favor, ingrese un número entero.\n");
                 }
-
-                porcentajeHierro = entrada.nextDouble();
-
-                // Validamos que el porcentaje ingresado sea un valor entre 0 y 100
-                if(porcentajeHierro < 0 || porcentajeHierro > 100){
-                    System.out.println("Error: el porcentaje debe estar entre 0 y 100");
-                }
-
             } while (porcentajeHierro < 0 || porcentajeHierro > 100);
 
             // Bloque para solicitar al usuario que indique si la muestra tiene sales de perclorato
             do{
-                System.out.print("Tiene sales de perclorato? (s/n): ");
+                System.out.print("¿Tiene sales de perclorato? (s/n): ");
                 tienePerclorato = entrada.next().charAt(0);
+                entrada.nextLine(); // Consumimos el salto de línea pendiente
 
                 if(tienePerclorato != 's' && tienePerclorato != 'S' && tienePerclorato != 'n' && tienePerclorato != 'N'){
-                    System.out.println("Error: debe ingresar 's' para Sí o 'n' para No.");
+                    System.out.println("Error: debe ingresar 's' para Sí o 'n' para No.\n");
                 }
 
             } while(tienePerclorato != 's' && tienePerclorato != 'S' && tienePerclorato != 'n' && tienePerclorato != 'N');
@@ -492,7 +521,7 @@ public class ExpedicionAMarte {
             sumaHierro += porcentajeHierro;
 
             if(porcentajeHierro > maxHierro){
-                // Actualizamos el valor maximo de oxido de hierro y la muestra correspondiente
+                // Actualizamos el valor máximo de óxido de hierro y la muestra correspondiente
                 maxHierro = porcentajeHierro;
                 muestraMaxHierro = i;
             }
@@ -503,15 +532,16 @@ public class ExpedicionAMarte {
             }
 
             // Mostramos reporte de la muestra procesada
-            System.out.println("Reporte de muestra:");
-            System.out.println("Número de muestra procesada: " + i);
-            System.out.println("Porcentaje de Fe203: " + porcentajeHierro + "%");
-            
-            // Mostramos la condicion de presencia de sales de perclorato segun la respuesta del usuario
+            System.out.print("\n*************************************************************\n");
+            System.out.print("Reporte de muestra:\n");
+            System.out.print("  Número de muestra procesada: " + i + " de " + cantidadMuestras + "\n");
+            System.out.print("  Porcentaje de Fe203: " + porcentajeHierro + "%\n");
+
+            // Mostramos la condició4n de presencia de sales de perclorato segun la respuesta del usuario
             if(tienePerclorato == 's' || tienePerclorato == 'S'){
-                System.out.println("Condición observada: presencia de sales de perclorato.");
+                System.out.print("Condición observada: Presencia de sales de perclorato.\n");
             }else{
-                System.out.println("Condición observada: sin presencia de sales de perclorato.");
+                System.out.print("Condición observada: Sin presencia de sales de perclorato.\n");
             }
         }
 
@@ -520,28 +550,34 @@ public class ExpedicionAMarte {
         double porcentajeToxicidad = (contadorToxicas * 100.0) / cantidadMuestras;
 
         // Mostramos el reporte final del lote de muestras
+        System.out.print("\n*************************************************************\n");
+        System.out.print("Reporte final del lote:\n");
+        System.out.print("  Total de muestras procesadas: " + cantidadMuestras + "\n");
+        System.out.printf("  Promedio de oxido de hierro: %.2f%%\n", promedioHierro);
+        System.out.print("  Muestra con mayor concentración: muestra " + muestraMaxHierro + " con " + maxHierro + "%\n");
+        System.out.printf("  Porcentaje de toxicidad del lote: %.2f%%\n", porcentajeToxicidad);
         System.out.println();
-        System.out.println("REPORTE FINAL DEL LOTE");
-        System.out.println("Total de muestras procesadas: " + cantidadMuestras);
-        System.out.printf("Promedio de oxido de hierro: %.2f%%\n", promedioHierro);
-        System.out.println("Muestra con mayor concentración: muestra " + muestraMaxHierro + " con " + maxHierro + "%" );
-        System.out.printf("Porcentaje de toxicidad del lote: %.2f%%\n", porcentajeToxicidad);
 
-        // Evaluamos si el lote es apto para extraccion y fundicion de metales segun los criterios establecidos
+        // Evaluamos si el lote es apto para extracción y fundición de metales según los criterios establecidos
         if(promedioHierro > 45.0 && porcentajeToxicidad < 25.0){
-            System.out.println("LOTE APTO: Aprobado para extraccion y fundición de metales");
+            System.out.print("LOTE APTO: Aprobado para extracción y fundición de metales.\n");
         }else {
-            System.out.println("LOTE DESCARTADO: Alta concentración de sales tóxicas o bajo rendimiento mineral.");
+            System.out.print("LOTE DESCARTADO: Alta concentración de sales tóxicas o bajo rendimiento mineral.\n");
         }
 
-        // Limpiamos el buffer del Scanner
-        entrada.nextLine();
+        System.out.println("*************************************************************\n");
         pausar(entrada);
     }
     // Fin Análisis Secuencial de Muestras de Regolito Marciano
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+
+        // Mostramos el logo y el mensaje de bienvenida al iniciar la aplicación
+        limpiarConsola();
+        mostrarLogo();
+        mostrarMensajeBienvenida();
+        pausar(entrada);
 
         // Ejecutamos el menú principal
         menuPrincipal(entrada);
