@@ -1,0 +1,109 @@
+import java.util.Scanner;
+
+public class PruebaSovyne {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        ejecutarSistemaSoVYNE(teclado);
+        teclado.close();
+    }
+    public static void ejecutarSistemaSoVYNE(Scanner entrada) {
+        char continuar;
+        do {
+
+            System.out.println("\n\n");
+            System.out.println("=================================================");
+            System.out.println("           Estado del SOVYNE         ");
+            System.out.println("=================================================\n");
+
+            mostrarEstadoSoVYNE(entrada);
+
+            System.out.print("\n¿Desea realizar otra lectura de SOVYNE? (s/n): ");
+            continuar = entrada.next().toLowerCase().charAt(0);
+
+        } while (continuar == 's');
+
+        System.out.println("\nSaliendo del sistema SoVYNE...");
+
+
+    }
+
+    public static void mostrarEstadoSoVYNE(Scanner entrada) {
+        double oxigeno = validarOxigeno(entrada);
+        double agua = validarAgua(entrada);
+        double energia = validarEnergia(entrada);
+        System.out.println("*************************************************");
+        System.out.println("--- REPORTE DE SoVYNE ---");
+
+        if (oxigeno < 20.0 || energia < 15.0) {
+            System.out.println("*************************************************");
+            System.out.println(" ALERTA CRÍTICA: Priorizar soporte de vida ");
+            System.out.println("*************************************************");
+        }
+        else if (agua < 50.0) {
+            System.out.println("*************************************************");
+            System.out.println(" PRECAUCIÓN: Racionamiento hídrico activado ");
+            System.out.println("*************************************************");
+        }
+        else {
+            System.out.println("*************************************************");
+            System.out.println(" CONDICIÓN ÓPTIMA: Hábitat presurizado y estable ");
+            System.out.println("*************************************************");
+        }
+    }
+    public static double validarOxigeno(Scanner entrada) {
+        double oxigeno = -1.0;
+        while (oxigeno < 0.0 || oxigeno > 100.0) {
+            System.out.print("Ingrese el nivel actual de Oxígeno (0 a 100%): ");
+            if (entrada.hasNextDouble()) {
+                oxigeno = entrada.nextDouble();
+                if (oxigeno < 0.0 || oxigeno > 100.0) {
+                    System.out.println("Error: El valor debe estar entre 0 y 100.");
+                }
+            } else {
+                System.out.print("Error: Debe ingresar un número válido.");
+                entrada.next();
+            }
+        }
+        return oxigeno;
+    }
+
+    public static double validarAgua(Scanner entrada) {
+
+        double agua = -1.0;
+        while (agua < 0.0) {
+            System.out.print("Ingrese el nivel de agua en litros:");
+            if (entrada.hasNextDouble()) {
+                agua = entrada.nextDouble();
+                if (agua < 0.0) {
+                    System.out.print("Error: El agua no puede ser negativa");
+                }
+
+
+            }
+        }
+
+        return agua;
+    }
+
+    public static double validarEnergia(Scanner entrada) {
+        double energia = -1.0;
+
+        while (energia < 0.0) {
+            System.out.print("Ingrese el nivel de energia el kWh:");
+            if (entrada.hasNextDouble()) {
+                energia = entrada.nextDouble();
+                if (energia < 0.0) {
+                    System.out.print("Error: El nivel de energia no puede ser negativo");
+                }
+            } else {
+                System.out.println("Error: Debe ingresar un número válido.");
+                entrada.next();
+            }
+        }
+
+        return energia;
+    }
+
+
+}
